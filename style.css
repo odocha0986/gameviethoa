@@ -127,8 +127,8 @@ nav {
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    column-gap: 50px;
-    row-gap: 70px;
+    column-gap: 18px;
+    row-gap: 18px;
     padding: 20px 0;
 }
 
@@ -218,8 +218,8 @@ nav {
 @media (max-width: 1024px) {
     .game-grid {
         grid-template-columns: repeat(3, 1fr);
-        column-gap: 30px;
-        row-gap: 50px;
+        column-gap: 14px;
+        row-gap: 14px;
     }
     
     .hero-section h1 {
@@ -234,8 +234,8 @@ nav {
 @media (max-width: 768px) {
     .game-grid {
         grid-template-columns: repeat(2, 1fr);
-        column-gap: 20px;
-        row-gap: 30px;
+        column-gap: 10px;
+        row-gap: 10px;
     }
     
     .nav-container {
@@ -264,7 +264,7 @@ nav {
     .game-grid {
         grid-template-columns: 1fr;
         column-gap: 0;
-        row-gap: 15px;
+        row-gap: 8px;
     }
     
     .nav-left, .nav-right {
