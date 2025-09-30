@@ -340,11 +340,11 @@ nav {
     margin-bottom: 16px;
     display: flex;
     justify-content: center;
-    gap: 32px;
+    gap: 24px;
 }
 .footer-icon img {
-    height: 48px;
-    width: 48px;
+    height: 36px;
+    width: 36px;
     object-fit: contain;
     border-radius: 50%;
     background: #fff;
