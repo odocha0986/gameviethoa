@@ -127,7 +127,8 @@ nav {
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 50px;
+    column-gap: 50px;
+    row-gap: 70px;
     padding: 20px 0;
 }
 
@@ -155,6 +156,7 @@ nav {
     background-repeat: no-repeat;
     position: relative;
     transition: all 0.3s ease;
+    image-rendering: auto;
 }
 
 .game-image::before {
@@ -216,7 +218,8 @@ nav {
 @media (max-width: 1024px) {
     .game-grid {
         grid-template-columns: repeat(3, 1fr);
-        gap: 25px;
+        column-gap: 30px;
+        row-gap: 50px;
     }
     
     .hero-section h1 {
@@ -231,7 +234,8 @@ nav {
 @media (max-width: 768px) {
     .game-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
+        column-gap: 20px;
+        row-gap: 30px;
     }
     
     .nav-container {
@@ -259,7 +263,8 @@ nav {
 @media (max-width: 480px) {
     .game-grid {
         grid-template-columns: 1fr;
-        gap: 15px;
+        column-gap: 0;
+        row-gap: 15px;
     }
     
     .nav-left, .nav-right {
