@@ -127,8 +127,8 @@ nav {
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    column-gap: 18px;
-    row-gap: 18px;
+    column-gap: 28px;
+    row-gap: 28px;
     padding: 20px 0;
 }
 
@@ -218,8 +218,8 @@ nav {
 @media (max-width: 1024px) {
     .game-grid {
         grid-template-columns: repeat(3, 1fr);
-        column-gap: 14px;
-        row-gap: 14px;
+        column-gap: 20px;
+        row-gap: 20px;
     }
     
     .hero-section h1 {
@@ -234,8 +234,8 @@ nav {
 @media (max-width: 768px) {
     .game-grid {
         grid-template-columns: repeat(2, 1fr);
-        column-gap: 10px;
-        row-gap: 10px;
+        column-gap: 12px;
+        row-gap: 12px;
     }
     
     .nav-container {
@@ -375,4 +375,32 @@ nav {
 }
 .footer-social a:hover {
     color: #ff6b6b;
+}
+
+.slider-container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 30px auto 40px auto;
+    overflow: hidden;
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    background: rgba(0,0,0,0.08);
+    position: relative;
+}
+.slider-track {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(.4,1.3,.5,1);
+    cursor: grab;
+}
+.slider-img {
+    min-width: 100%;
+    height: 260px;
+    object-fit: cover;
+    user-select: none;
+    pointer-events: none;
+}
+@media (max-width: 768px) {
+    .slider-img {
+        height: 160px;
+    }
 }
