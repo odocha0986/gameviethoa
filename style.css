@@ -122,25 +122,34 @@ nav {
 }
 
 /* Game Grid - Made Rectangular */
+/* Gia cố grid để không dính chùm */
 .game-grid {
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     column-gap: 32px;
     row-gap: 32px;
     padding: 20px 0;
+    align-items: stretch;
 }
-
+.game-grid > * {
+    box-sizing: border-box;
+}
+.game-grid ul,
+.game-grid li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
 .game-card {
-    position: relative;
-    border-radius: 15px;
+    margin: 0;
+    padding: 0;
     overflow: hidden;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    height: 180px; /* Rectangular height - much shorter than width */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    aspect-ratio: 16/9; /* Force rectangular aspect ratio */
+    border-radius: 15px;
+}
+.game-image {
+    display: block;
 }
 
 .game-card:hover {
@@ -217,7 +226,7 @@ nav {
 /* Responsive Design */
 @media (max-width: 1024px) {
     .game-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, minmax(0, 1fr));
         column-gap: 22px;
         row-gap: 22px;
     }
@@ -233,7 +242,7 @@ nav {
 
 @media (max-width: 768px) {
     .game-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         column-gap: 12px;
         row-gap: 12px;
     }
