@@ -44,6 +44,15 @@ nav {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-image {
+    height: 40px;
+    width: 40px;
+    object-fit: contain;
 }
 
 .nav-link {
@@ -63,26 +72,6 @@ nav {
     transform: translateY(-2px);
 }
 
-.search-btn {
-    background: linear-gradient(135deg, #ff6b6b, #ee5a24);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 25px;
-    cursor: pointer;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.search-btn:hover {
-    background: linear-gradient(135deg, #ee5a24, #ff6b6b);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
-}
-
 /* Main Content */
 .main-content {
     padding: 50px 20px;
@@ -90,7 +79,7 @@ nav {
 
 .hero-section {
     text-align: center;
-    margin-bottom: 80px;
+    margin-bottom: 40px;
     padding: 60px 0;
 }
 
@@ -112,6 +101,33 @@ nav {
     line-height: 1.6;
 }
 
+/* Search Section */
+.search-section {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.search-btn {
+    background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.search-btn:hover {
+    background: linear-gradient(135deg, #ee5a24, #ff6b6b);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 107, 107, 0.4);
+}
+
 /* Game Grid */
 .game-grid {
     max-width: 1200px;
@@ -128,7 +144,7 @@ nav {
     overflow: hidden;
     cursor: pointer;
     transition: all 0.3s ease;
-    height: 300px;
+    height: 200px; /* Changed from 300px to 200px for rectangular shape */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
@@ -212,6 +228,10 @@ nav {
     .hero-section h1 {
         font-size: 2.8rem;
     }
+    
+    .game-card {
+        height: 180px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -238,7 +258,7 @@ nav {
     }
     
     .game-card {
-        height: 250px;
+        height: 160px;
     }
 }
 
@@ -256,7 +276,7 @@ nav {
     
     .hero-section {
         padding: 30px 0;
-        margin-bottom: 50px;
+        margin-bottom: 30px;
     }
     
     .hero-section h1 {
@@ -264,7 +284,7 @@ nav {
     }
     
     .game-card {
-        height: 200px;
+        height: 140px;
     }
 }
 
