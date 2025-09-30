@@ -146,35 +146,30 @@
 const trackEl = document.querySelector('.slider-track');
 const items = Array.from(document.querySelectorAll('.slider-item'));
 let current = 0;
-function applyClasses() {
-  items.forEach((it, i) => {
-    it.classList.remove('is-center','is-prev','is-next');
-  });
+function render() {
   const prev = (current - 1 + items.length) % items.length;
   const next = (current + 1) % items.length;
-  items[current].classList.add('is-center');
+  items.forEach(it => it.classList.remove('is-center','is-prev','is-next'));
   items[prev].classList.add('is-prev');
+  items[current].classList.add('is-center');
   items[next].classList.add('is-next');
-  // sắp xếp lại thứ tự hiển thị để trung tâm ở giữa
-  const order = [prev, current, next];
-  const ordered = order.map(i => items[i]);
+  // đặt lại thứ tự hiển thị: prev - center - next
   trackEl.innerHTML = '';
-  ordered.forEach(el => trackEl.appendChild(el));
+  trackEl.appendChild(items[prev]);
+  trackEl.appendChild(items[current]);
+  trackEl.appendChild(items[next]);
 }
-function go(dir) { // dir: 1 next, -1 prev
-  current = (current + dir + items.length) % items.length;
-  applyClasses();
-}
-let auto = setInterval(() => go(1), 5000);
+function go(dir) { current = (current + dir + items.length) % items.length; render(); }
+let auto = setInterval(() => go(1), 4500);
 // Kéo chuột/ vuốt
 let isDrag = false, startX = 0, delta = 0;
-trackEl.addEventListener('mousedown', e => { isDrag = true; startX = e.pageX; clearInterval(auto); });
-window.addEventListener('mouseup', () => { if(!isDrag) return; isDrag=false; if (Math.abs(delta) > 40) go(delta < 0 ? 1 : -1); auto=setInterval(()=>go(1),5000); delta = 0; });
+trackEl.addEventListener('mousedown', e => { isDrag = true; startX = e.pageX; delta = 0; clearInterval(auto); });
+window.addEventListener('mouseup', () => { if(!isDrag) return; isDrag=false; if (Math.abs(delta) > 40) go(delta < 0 ? 1 : -1); auto=setInterval(()=>go(1),4500); delta = 0; });
 window.addEventListener('mousemove', e => { if(!isDrag) return; delta = e.pageX - startX; });
-trackEl.addEventListener('touchstart', e => { isDrag = true; startX = e.touches[0].pageX; clearInterval(auto); });
-window.addEventListener('touchend', () => { if(!isDrag) return; isDrag=false; if (Math.abs(delta) > 40) go(delta < 0 ? 1 : -1); auto=setInterval(()=>go(1),5000); delta = 0; });
+trackEl.addEventListener('touchstart', e => { isDrag = true; startX = e.touches[0].pageX; delta = 0; clearInterval(auto); });
+window.addEventListener('touchend', () => { if(!isDrag) return; isDrag=false; if (Math.abs(delta) > 40) go(delta < 0 ? 1 : -1); auto=setInterval(()=>go(1),4500); delta = 0; });
 window.addEventListener('touchmove', e => { if(!isDrag) return; delta = e.touches[0].pageX - startX; });
-applyClasses();
+render();
 </script>
 </body>
 </html>

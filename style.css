@@ -406,14 +406,15 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 24px;
-    transition: transform 0.45s ease;
+    gap: 28px;
+    transition: transform 0.35s ease;
+    will-change: transform;
 }
 .slider-item {
-    flex: 0 0 70%;                 /* item trung tâm chiếm 70% bề rộng container */
-    transform: scale(0.92);
+    flex: 0 0 65%;                 /* kích thước mặc định */
+    transform: scale(0.9);
     opacity: 0.6;
-    transition: transform 0.45s ease, opacity 0.45s ease;
+    transition: transform 0.35s ease, opacity 0.35s ease, box-shadow 0.35s ease;
 }
 .slider-item .slider-img {
     width: 100%;
@@ -421,18 +422,27 @@ nav {
     border-radius: 22px;
     object-fit: cover;
     box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+    border: 2px solid rgba(255,255,255,0.08);
 }
 .slider-item.is-center {
-    flex-basis: 80%;               /* trung tâm lớn hơn */
+    flex-basis: 85%;               /* trung tâm lớn hơn */
     transform: scale(1);
     opacity: 1;
 }
 .slider-item.is-prev,
 .slider-item.is-next {
-    flex-basis: 40%;               /* preview 2 bên nhỏ hơn */
-    transform: scale(0.85);
+    flex-basis: 38%;               /* preview 2 bên nhỏ hơn */
+    transform: scale(0.88);
     opacity: 0.85;
 }
+/* Viền nhấn mạnh hai ảnh bên */
+.slider-item.is-prev .slider-img,
+.slider-item.is-next .slider-img {
+    border-color: rgba(255,255,255,0.22);
+}
+/* Hover lướt qua tăng scale nhẹ */
+.slider-item:hover { transform: scale(0.93); }
+.slider-item.is-center:hover { transform: scale(1.02); }
 @media (max-width: 768px) {
     .slider-item { flex-basis: 85%; }
     .slider-item.is-center { flex-basis: 95%; }
